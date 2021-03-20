@@ -52,6 +52,7 @@ class Home extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ScoreHandler(PlayerType.green),
+            Obx(() => Text('${c.getPlayerScore(PlayerType.green)}')),
           ],
         ),
       ),
