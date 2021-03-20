@@ -1,3 +1,4 @@
+import 'package:bxg_bjj_scoreboard/components/score_handler.dart';
 import 'package:bxg_bjj_scoreboard/controller.dart';
 import 'package:bxg_bjj_scoreboard/local_asset.dart';
 import 'package:flutter/material.dart';
@@ -12,9 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(Controller());
+
     return MaterialApp(
       title: 'BxG BJJ Scoreboard',
       theme: ThemeData(
+        brightness: Brightness.light,
         primaryColor: Colors.black,
       ),
       home: Home(),
@@ -44,27 +47,19 @@ class Home extends StatelessWidget {
           crossAxisAlignment: WrapCrossAlignment.center,
         ),
       ),
-      body: Obx(
-        () => Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'You have pushed the button this many times:',
-              ),
-              Text(
-                '${c.getPlayerScore(PlayerType.green)}',
-                style: Theme.of(context).textTheme.headline4,
-              ),
-            ],
-          ),
+      body: SingleChildScrollView(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ScoreHandler(PlayerType.green),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => {c.changePlayerScore(PlayerType.green, 4)},
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+      ),
+    ); // This trailing comma makes auto-formatting nicer for build methods.
   }
 }
