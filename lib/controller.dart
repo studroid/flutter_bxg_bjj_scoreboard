@@ -1,29 +1,19 @@
 import 'package:get/get.dart';
 
-enum PlayerType { blue, red }
+enum PlayerType { green, red }
+
+const double DEFAULT_TIME_IN_MS = 6.0 * 60 * 1000;
 
 class Controller extends GetxController {
-  RxInt blueScore = 0.obs;
-  RxInt redScore = 0.obs;
-
-  void changePlayerScore(PlayerType player, int scoreVariance) {
-    switch (player) {
-      case PlayerType.blue:
-        blueScore += scoreVariance;
-        break;
-      case PlayerType.red:
-        redScore += scoreVariance;
-        break;
-    }
-  }
-/*
-Shorter, but logically more complex alternative
-
   List<RxInt> scoreList = List.filled(PlayerType.values.length, 0.obs);
 
   void changePlayerScore(PlayerType player, int scoreVariance) {
     scoreList[player.index] += scoreVariance;
   }
-*/
 
+  RxInt getPlayerScore(PlayerType playerType) {
+    return scoreList[playerType.index];
+  }
+
+  RxDouble remainingTimeInMs = DEFAULT_TIME_IN_MS.obs;
 }

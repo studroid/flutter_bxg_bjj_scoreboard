@@ -37,7 +37,7 @@ class Home extends StatelessWidget {
               width: 200,
             ),
             Text("BxG BJJ Scoreboard"),
-            Padding(padding: EdgeInsets.only(right: 100.0))
+            SizedBox(width: 160)
           ],
           direction: Axis.horizontal,
           alignment: WrapAlignment.center,
@@ -53,7 +53,7 @@ class Home extends StatelessWidget {
                 'You have pushed the button this many times:',
               ),
               Text(
-                '${c.blueScore}',
+                '${c.getPlayerScore(PlayerType.green)}',
                 style: Theme.of(context).textTheme.headline4,
               ),
             ],
@@ -61,7 +61,7 @@ class Home extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => {c.changePlayerScore(PlayerType.blue, 4)},
+        onPressed: () => {c.changePlayerScore(PlayerType.green, 4)},
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
