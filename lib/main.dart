@@ -48,12 +48,14 @@ class Home extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ScoreHandler(PlayerType.green),
-            Obx(() => Text('${c.getPlayerScore(PlayerType.green)}')),
-          ],
+        child: Obx(
+          () => Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              ScoreHandler(PlayerType.green),
+              Text('${c.getPlayerScore(PlayerType.green)}'),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
