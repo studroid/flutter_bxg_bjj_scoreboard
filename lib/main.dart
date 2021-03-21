@@ -52,8 +52,13 @@ class Home extends StatelessWidget {
           () => Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              ScoreHandler(PlayerType.green),
-              Text('${c.getPlayerScore(PlayerType.green)}'),
+              Expanded(flex: 1, child: ScoreHandler(PlayerType.green)),
+              Expanded(
+                  flex: 2,
+                  child: Text('${c.getPlayerScore(PlayerType.green)}')),
+              Expanded(
+                  flex: 2, child: Text('${c.getPlayerScore(PlayerType.red)}')),
+              Expanded(flex: 1, child: ScoreHandler(PlayerType.red)),
             ],
           ),
         ),

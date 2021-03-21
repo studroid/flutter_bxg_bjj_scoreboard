@@ -17,34 +17,35 @@ class ScoreHandlerUnit extends StatelessWidget {
     var textStyle = TextStyle(color: Colors.white);
 
     return Container(
-      height: 200,
       color: this.backgroundColor,
-      child: Column(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            flex: 1,
-            child: FittedBox(
-              child: TextButton(
-                child: Text('+', style: textStyle),
-                onPressed: () =>
-                    c.changePlayerScore(playerType, this.varianceUnit),
+          Column(
+            children: [
+              Expanded(
+                child: FittedBox(
+                  child: TextButton(
+                    child: Text('+', style: textStyle),
+                    onPressed: () =>
+                        c.changePlayerScore(playerType, this.varianceUnit),
+                  ),
+                ),
               ),
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: FittedBox(
-                child: Text('${this.varianceUnit}', style: textStyle)),
-          ),
-          Expanded(
-            flex: 1,
-            child: FittedBox(
-              child: TextButton(
-                child: Text('-', style: textStyle),
-                onPressed: () =>
-                    c.changePlayerScore(playerType, -1 * this.varianceUnit),
+              Expanded(
+                child: FittedBox(
+                    child: Text('${this.varianceUnit}', style: textStyle)),
               ),
-            ),
+              Expanded(
+                child: FittedBox(
+                  child: TextButton(
+                    child: Text('-', style: textStyle),
+                    onPressed: () =>
+                        c.changePlayerScore(playerType, -1 * this.varianceUnit),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
