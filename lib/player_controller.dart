@@ -40,4 +40,15 @@ class PlayerController extends GetxController {
   TextEditingController getPlayerTextEditingController(PlayerType playerType) {
     return _playerDataList[playerType.index].textEditingController;
   }
+
+  void resetData() {
+    for (int i = 0; i < PlayerType.values.length; i++) {
+      _playerDataList[i].score = 0;
+      _playerDataList[i].adv = 0;
+      _playerDataList[i].pen = 0;
+      _playerDataList[i].textEditingController.clear();
+    }
+
+    _playerDataList.refresh();
+  }
 }

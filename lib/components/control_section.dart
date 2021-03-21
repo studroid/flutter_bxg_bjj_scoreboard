@@ -13,15 +13,21 @@ class ControlSection extends StatelessWidget {
         color: Colors.white,
         child: Row(
           children: [
-            Expanded(
-              flex: 3,
-              child: Text(
-                'a',
-                textAlign: TextAlign.center,
-              ),
-            ),
+            Spacer(flex: 3),
             Expanded(
               flex: 1,
+              child: FittedBox(
+                child: IconButton(
+                  icon: const Icon(Icons.refresh),
+                  onPressed: () {
+                    tc.resetData();
+                  },
+                ),
+              ),
+            ),
+            Spacer(flex: 2),
+            Expanded(
+              flex: 2,
               child: FittedBox(
                 child: TextButton(
                   child: Text('-'),
@@ -30,7 +36,7 @@ class ControlSection extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 2,
+              flex: 4,
               child: FittedBox(
                 child: Center(
                     child: Text(
@@ -38,7 +44,7 @@ class ControlSection extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 1,
+              flex: 2,
               child: FittedBox(
                 child: TextButton(
                   child: Text('+'),
@@ -46,13 +52,16 @@ class ControlSection extends StatelessWidget {
                 ),
               ),
             ),
+            Spacer(flex: 2),
             Expanded(
-              flex: 3,
-              child: Text(
-                'a',
-                textAlign: TextAlign.left,
-              ),
-            )
+              flex: 1,
+              child: FittedBox(
+                  child: IconButton(
+                icon: const Icon(Icons.play_circle_outline),
+                onPressed: () {},
+              )),
+            ),
+            Spacer(flex: 3),
           ],
         ),
       ),
