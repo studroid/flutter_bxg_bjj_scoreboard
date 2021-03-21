@@ -1,4 +1,4 @@
-# bxg_bjj_scoreboard
+# BxG BJJ Scoreboard made with Flutter
 
 Brazilian Jiujitsu Scoreboard from BxG by James
 
