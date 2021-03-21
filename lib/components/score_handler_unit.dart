@@ -1,4 +1,4 @@
-import 'package:bxg_bjj_scoreboard/controller.dart';
+import 'package:bxg_bjj_scoreboard/player_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,7 +12,7 @@ class ScoreHandlerUnit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Controller c = Get.find();
+    PlayerController c = Get.find();
 
     var textStyle = TextStyle(color: Colors.white);
 
@@ -28,7 +28,7 @@ class ScoreHandlerUnit extends StatelessWidget {
                   child: TextButton(
                     child: Text('+', style: textStyle),
                     onPressed: () =>
-                        c.changePlayerScore(playerType, this.varianceUnit),
+                        c.changePlayerScore(this.playerType, this.varianceUnit),
                   ),
                 ),
               ),
@@ -40,8 +40,8 @@ class ScoreHandlerUnit extends StatelessWidget {
                 child: FittedBox(
                   child: TextButton(
                     child: Text('-', style: textStyle),
-                    onPressed: () =>
-                        c.changePlayerScore(playerType, -1 * this.varianceUnit),
+                    onPressed: () => c.changePlayerScore(
+                        this.playerType, -1 * this.varianceUnit),
                   ),
                 ),
               ),

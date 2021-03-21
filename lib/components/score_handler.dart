@@ -1,5 +1,5 @@
 import 'package:bxg_bjj_scoreboard/components/score_handler_unit.dart';
-import 'package:bxg_bjj_scoreboard/controller.dart';
+import 'package:bxg_bjj_scoreboard/player_controller.dart';
 import 'package:flutter/material.dart';
 
 class ScoreHandler extends StatelessWidget {

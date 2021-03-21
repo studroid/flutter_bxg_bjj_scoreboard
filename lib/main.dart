@@ -1,7 +1,7 @@
 import 'package:bxg_bjj_scoreboard/components/player_info.dart';
 import 'package:bxg_bjj_scoreboard/components/score_handler.dart';
-import 'package:bxg_bjj_scoreboard/controller.dart';
 import 'package:bxg_bjj_scoreboard/local_asset.dart';
+import 'package:bxg_bjj_scoreboard/player_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    Get.put(Controller());
+    Get.put(PlayerController());
 
     return MaterialApp(
       title: 'BxG BJJ Scoreboard',
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Controller c = Get.find();
+    PlayerController c = Get.find();
 
     return Scaffold(
       appBar: AppBar(
@@ -49,41 +49,32 @@ class Home extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: Obx(
-          () => Container(
-            height: MediaQuery.of(context).size.height - 55,
-            child: Column(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Row(children: <Widget>[
-                    Expanded(child: Text('control')),
-                  ]),
+        child: Container(
+          height: MediaQuery.of(context).size.height - 55,
+          child: Column(
+            children: [
+              Expanded(
+                flex: 1,
+                child: Row(children: <Widget>[
+                  Expanded(child: Text('control')),
+                ]),
+              ),
+              Expanded(
+                flex: 4,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(flex: 1, child: ScoreHandler(PlayerType.green)),
+                    Expanded(flex: 2, child: PlayerInfo(PlayerType.green)),
+                    Expanded(flex: 2, child: PlayerInfo(PlayerType.red)),
+                    Expanded(flex: 1, child: ScoreHandler(PlayerType.red)),
+                  ],
                 ),
-                Expanded(
-                  flex: 4,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(flex: 1, child: ScoreHandler(PlayerType.green)),
-                      Expanded(flex: 2, child: PlayerInfo(PlayerType.green)),
-                      Expanded(
-                          flex: 2,
-                          child: Text('${c.getPlayerScore(PlayerType.red)}')),
-                      Expanded(flex: 1, child: ScoreHandler(PlayerType.red)),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => {c.changePlayerScore(PlayerType.green, 4)},
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
-    ); // This trailing comma makes auto-formatting nicer for build methods.
+    );
   }
 }

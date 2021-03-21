@@ -21,7 +21,7 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  get: ^3.26.0
+  get: ^4.0.0-nullsafety.2
   flutter:
     sdk: flutter
 
