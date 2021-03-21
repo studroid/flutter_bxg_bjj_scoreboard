@@ -1,3 +1,4 @@
+import 'package:bxg_bjj_scoreboard/components/control_section.dart';
 import 'package:bxg_bjj_scoreboard/components/player_info.dart';
 import 'package:bxg_bjj_scoreboard/components/score_handler.dart';
 import 'package:bxg_bjj_scoreboard/local_asset.dart';
@@ -29,8 +30,6 @@ class MyApp extends StatelessWidget {
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    PlayerController c = Get.find();
-
     return Scaffold(
       appBar: AppBar(
         title: Wrap(
@@ -56,7 +55,7 @@ class Home extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: Row(children: <Widget>[
-                  Expanded(child: Text('control')),
+                  Expanded(child: ControlSection()),
                 ]),
               ),
               Expanded(

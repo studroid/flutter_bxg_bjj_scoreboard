@@ -31,6 +31,7 @@ class PlayerInfo extends StatelessWidget {
             Expanded(
               flex: 1,
               child: TextField(
+                controller: c.getPlayerTextEditingController(this.playerType),
                 style: textStyle.merge(
                     TextStyle(fontSize: dynamicFontSizeCriterion * 0.035)),
                 textAlign: TextAlign.center,

@@ -1,10 +1,9 @@
 import 'package:bxg_bjj_scoreboard/model.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 enum PlayerType { green, red }
 enum AdvOrPenType { adv, pen }
-
-const double DEFAULT_TIME_IN_MS = 6.0 * 60 * 1000;
 
 class PlayerController extends GetxController {
   RxList<PlayerData> _playerDataList =
@@ -35,9 +34,10 @@ class PlayerController extends GetxController {
     if (advOrPen == AdvOrPenType.adv) {
       return _playerDataList[playerType.index].adv;
     }
-
     return _playerDataList[playerType.index].pen;
   }
 
-  RxDouble remainingTimeInMs = DEFAULT_TIME_IN_MS.obs;
+  TextEditingController getPlayerTextEditingController(PlayerType playerType) {
+    return _playerDataList[playerType.index].textEditingController;
+  }
 }
