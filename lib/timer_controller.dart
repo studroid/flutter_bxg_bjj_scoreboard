@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:get/get.dart';
 
-const int DEFAULT_TIME_IN_MS = 6 * 60 * 1000;
+const int DEFAULT_TIME_IN_MS = 6 * 60 * 1000 + 999;
 
 class TimerController extends GetxController {
   RxInt _remainingTimeInMs = DEFAULT_TIME_IN_MS.obs;
@@ -13,14 +13,21 @@ class TimerController extends GetxController {
   int get remainingSeconds => (_remainingTimeInMs ~/ 1000) % 60;
 
   void changeRemainingTime(int timeVarianceInMs) {
-    _remainingTimeInMs += timeVarianceInMs;
+    if (timeVarianceInMs < 0 &&
+        (_remainingTimeInMs.value + timeVarianceInMs) < 0) {
+      _remainingTimeInMs.value = 0;
+    } else {
+      _remainingTimeInMs += timeVarianceInMs;
+    }
   }
 
   void startTimer() {
     isOngoing.value = true;
     _timer?.cancel();
     _timer = Timer.periodic(Duration(milliseconds: 100), (timer) {
-      _remainingTimeInMs -= 100;
+      if (_remainingTimeInMs > 100) {
+        _remainingTimeInMs -= 100;
+      }
     });
   }
 
