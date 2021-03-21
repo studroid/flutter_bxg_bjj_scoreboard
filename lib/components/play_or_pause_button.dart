@@ -1,5 +1,4 @@
 import 'package:bxg_bjj_scoreboard/timer_controller.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

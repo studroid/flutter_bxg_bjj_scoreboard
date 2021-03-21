@@ -1,7 +1,6 @@
 import 'package:bxg_bjj_scoreboard/components/play_or_pause_button.dart';
 import 'package:bxg_bjj_scoreboard/player_controller.dart';
 import 'package:bxg_bjj_scoreboard/timer_controller.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
