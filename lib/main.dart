@@ -1,3 +1,4 @@
+import 'package:bxg_bjj_scoreboard/components/player_info.dart';
 import 'package:bxg_bjj_scoreboard/components/score_handler.dart';
 import 'package:bxg_bjj_scoreboard/controller.dart';
 import 'package:bxg_bjj_scoreboard/local_asset.dart';
@@ -49,17 +50,32 @@ class Home extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Obx(
-          () => Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Expanded(flex: 1, child: ScoreHandler(PlayerType.green)),
-              Expanded(
-                  flex: 2,
-                  child: Text('${c.getPlayerScore(PlayerType.green)}')),
-              Expanded(
-                  flex: 2, child: Text('${c.getPlayerScore(PlayerType.red)}')),
-              Expanded(flex: 1, child: ScoreHandler(PlayerType.red)),
-            ],
+          () => Container(
+            height: MediaQuery.of(context).size.height - 55,
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Row(children: <Widget>[
+                    Expanded(child: Text('control')),
+                  ]),
+                ),
+                Expanded(
+                  flex: 4,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(flex: 1, child: ScoreHandler(PlayerType.green)),
+                      Expanded(flex: 2, child: PlayerInfo(PlayerType.green)),
+                      Expanded(
+                          flex: 2,
+                          child: Text('${c.getPlayerScore(PlayerType.red)}')),
+                      Expanded(flex: 1, child: ScoreHandler(PlayerType.red)),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

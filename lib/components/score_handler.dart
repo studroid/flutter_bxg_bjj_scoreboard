@@ -9,16 +9,13 @@ class ScoreHandler extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height - 50,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(child: ScoreHandlerUnit(this.playerType, 4, Colors.black54)),
-          Expanded(child: ScoreHandlerUnit(this.playerType, 3, Colors.black45)),
-          Expanded(child: ScoreHandlerUnit(this.playerType, 2, Colors.black38)),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(child: ScoreHandlerUnit(this.playerType, 4, Colors.black54)),
+        Expanded(child: ScoreHandlerUnit(this.playerType, 3, Colors.black45)),
+        Expanded(child: ScoreHandlerUnit(this.playerType, 2, Colors.black38)),
+      ],
     );
   }
 }
