@@ -44,6 +44,10 @@ class TimerController extends GetxController {
       if (901 <= _remainingTimeInMs.value && _remainingTimeInMs.value <= 1000) {
         _pool!.play(_soundId);
       }
+
+      if (_remainingTimeInMs < 900) {
+        stopTimer();
+      }
     });
 
     _pool!.play(_soundId);
