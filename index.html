@@ -23,7 +23,7 @@
   <meta name="apple-mobile-web-app-title" content="bxg_bjj_scoreboard">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <title>bxg_bjj_scoreboard</title>
+  <title>BxG BJJ Scoreboard</title>
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
@@ -43,7 +43,8 @@
       document.body.append(scriptTag);
     }
 
-    loadMainDartJs();
+    // Service workers not supported. Just drop the <script> tag.
+    loadMainDartJs(); 
   </script>
 </body>
 </html>
