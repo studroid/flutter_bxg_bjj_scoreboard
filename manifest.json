@@ -1,7 +1,7 @@
 {
     "name": "bxg_bjj_scoreboard",
     "short_name": "bxg_bjj_scoreboard",
-    "start_url": ".",
+    "start_url": "/flutter_bxg_bjj_scoreboard/",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",

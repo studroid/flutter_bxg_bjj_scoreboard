@@ -10315,7 +10315,9 @@ return s},
 uQ:function uQ(a,b,c,d,e,f,g,h,i,j){var _=this
 _.dy=a
 _.fr=b
-_.go=_.fy=_.fx=null
+_.fx=null
+_.fy=!1
+_.id=_.go=null
 _.dD$=c
 _.di$=d
 _.dj$=e
@@ -33501,7 +33503,7 @@ r=A.il(m,m,C.j,m,m,m,m,m,m,m,m,m,m,m,m,m,!0,m,m,m,m,m,m)
 q=n.d
 p=q===C.j7?"Adv":"Pen"
 o=t.p
-return T.zt(H.a([T.bE(T.Dt(H.a([new R.fo(1,m),T.bE(T.f_(U.uC(L.dw("-",m,m,m,r,m,m),new R.M5(n,s),m)),5),T.bE(T.f_(L.dw(""+s.K6(n.c,q),m,m,m,r,m,m)),1),T.bE(T.f_(U.uC(L.dw("+",m,m,m,r,m,m),new R.M6(n,s),m)),5),new R.fo(1,m)],o),C.bd,C.bR,C.b_),4),T.bE(T.f_(L.dw(p,m,m,m,m,m,m)),1)],o),C.bd,C.bR,C.b_)}}
+return T.zt(H.a([T.bE(T.Dt(H.a([new R.fo(1,m),T.bE(T.f_(U.uC(L.dw("-",m,m,m,r,m,m),new R.M5(n,s),m)),4),T.bE(T.f_(L.dw(""+s.K6(n.c,q),m,m,m,r,m,m)),1),T.bE(T.f_(U.uC(L.dw("+",m,m,m,r,m,m),new R.M6(n,s),m)),4),new R.fo(1,m)],o),C.bd,C.bR,C.b_),6),T.bE(T.f_(L.dw(p,m,m,m,m,m,m)),2)],o),C.bd,C.bR,C.b_)}}
 R.M5.prototype={
 $0:function(){var s=this.a
 return this.b.Gu(s.c,s.d,-1)},
@@ -33535,6 +33537,7 @@ r.dy.sl(0,360999)
 s=r.fx
 if(s!=null)s.aw(0)
 r.fx=null
+r.fy=!1
 this.b.a3E()},
 $C:"$0",
 $R:0,
@@ -33580,7 +33583,7 @@ o.a=C.yX
 if(this.c===C.om)o.a=C.yY
 return new X.nE(new G.TY(o,this,s,q,r.a.b),p)}}
 G.TY.prototype={
-$0:function(){var s=this,r=null,q=s.a.a,p=s.b.c,o=s.c.dy,n=p.a,m=J.at(o.gl(o),n).d,l=s.d,k=s.e,j=l.bo(A.il(r,r,r,r,r,r,r,r,r,r,r,k*0.035,r,r,r,r,!0,r,r,r,r,r,r))
+$0:function(){var s=this,r=null,q=s.a.a,p=s.b.c,o=s.c.dy,n=p.a,m=J.at(o.gl(o),n).d,l=s.d,k=s.e,j=l.bo(A.il(r,r,r,r,r,r,r,r,r,r,r,k*0.05,r,r,r,r,!0,r,r,r,r,r,r))
 return M.j0(r,T.zt(H.a([new R.fo(1,r),T.bE(new Z.uG(m,new L.rm(r,r,r,r,r,r,"Player Name",r,r,r,r,r,r,!0,r,!1,C.ai,!0,r,r,r,r,r,r,r,r,r,r,r,r,r,!1,r,r,r,r,r,r,r,r,C.lD,!0,r,!1),C.AR,j,C.f4,C.Ai,C.Aj,C.DZ,r),1),T.bE(L.dw(""+J.at(o.gl(o),n).a,r,r,r,l.bo(A.il(r,r,r,r,r,r,r,r,r,r,r,k*0.1,r,r,r,r,!0,r,r,r,r,r,r)),r,r),3),T.bE(new R.pQ(p,C.j7,r),2),T.bE(new R.pQ(p,C.uf,r),2),new R.fo(1,r)],t.p),C.bd,C.bR,C.b_),q,r,r,r,r,r,r)},
 $C:"$0",
 $R:0,
@@ -33646,11 +33649,11 @@ if(p!=null)p.aJ(0,r)
 p=s.fm$
 J.at(p===$?H.f(H.t(o)):p,q).d.kr(0,C.AQ)}r.f7(s.gl(s))}}
 F.uQ.prototype={
-gEZ:function(){var s=this.go
+gEZ:function(){var s=this.id
 return s==null?H.f(H.t("_soundId")):s},
 Qu:function(){var s=new E.XG(1,C.Ar,new P.aw(new P.a_($.T,t.h1),t.kJ))
 s.ps(0)
-this.fy=s
+this.go=s
 $.LM().c_(0,"assets/beep.wav").bA(0,new F.YN(this),t.S)},
 Gw:function(a){var s,r
 if(a<0){s=this.dy
@@ -33660,23 +33663,23 @@ if(s)r.sl(0,0)
 else{r.sl(0,r.gl(r)+a)
 this.dy=r}},
 Lb:function(){var s,r=this
-r.fr.sl(0,!0)
+if(!r.fy){s=r.go
+s.toString
+s.lN(0,r.gEZ())
+r.fy=!0}r.fr.sl(0,!0)
 s=r.fx
 if(s!=null)s.aw(0)
-r.fx=P.EE(P.ce(0,100),new F.YO(r))
-s=r.fy
-s.toString
-s.lN(0,r.gEZ())},
+r.fx=P.EE(P.ce(0,100),new F.YO(r))},
 Aq:function(){this.fr.sl(0,!1)
 var s=this.fx
 if(s!=null)s.aw(0)}}
 F.YN.prototype={
-$1:function(a){var s=this.a,r=s.fy
+$1:function(a){var s=this.a,r=s.go
 r.toString
 return r.oi(H.co(a.buffer,0,null),1).bA(0,new F.YM(s),t.S)},
 $S:125}
 F.YM.prototype={
-$1:function(a){return this.a.go=a},
+$1:function(a){return this.a.id=a},
 $S:66}
 F.YO.prototype={
 $1:function(a){var s=this.a,r=s.dy
@@ -33687,7 +33690,7 @@ r.sl(0,r.gl(r)-100)
 s.dy=r}r=s.dy
 if(901<=r.gl(r)){r=s.dy
 r=r.gl(r)<=1000}else r=!1
-if(r){r=s.fy
+if(r){r=s.go
 r.toString
 r.lN(0,s.gEZ())}r=s.dy
 r=r.gl(r)
