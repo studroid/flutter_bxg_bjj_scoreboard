@@ -10,6 +10,7 @@ class TimerController extends GetxController {
   RxInt _remainingTimeInMs = DEFAULT_TIME_IN_MS.obs;
   RxBool isOngoing = false.obs;
   Timer? _timer;
+  bool hasStartedOnce = false;
 
   Soundpool? _pool;
   late int _soundId;
@@ -34,6 +35,10 @@ class TimerController extends GetxController {
   }
 
   void startTimer() {
+    if (!hasStartedOnce) {
+      _pool!.play(_soundId);
+      hasStartedOnce = true;
+    }
     isOngoing.value = true;
     _timer?.cancel();
     _timer = Timer.periodic(Duration(milliseconds: 100), (timer) {
@@ -49,8 +54,6 @@ class TimerController extends GetxController {
         stopTimer();
       }
     });
-
-    _pool!.play(_soundId);
   }
 
   void stopTimer() {
@@ -65,5 +68,6 @@ class TimerController extends GetxController {
       _timer!.cancel();
     }
     _timer = null;
+    hasStartedOnce = false;
   }
 }
