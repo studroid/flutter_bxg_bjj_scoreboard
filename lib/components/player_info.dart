@@ -32,7 +32,7 @@ class PlayerInfo extends StatelessWidget {
               child: TextField(
                 controller: c.getPlayerTextEditingController(this.playerType),
                 style: textStyle.merge(
-                    TextStyle(fontSize: dynamicFontSizeCriterion * 0.035)),
+                    TextStyle(fontSize: dynamicFontSizeCriterion * 0.05)),
                 textAlign: TextAlign.center,
                 decoration: InputDecoration.collapsed(hintText: 'Player Name'),
               ),

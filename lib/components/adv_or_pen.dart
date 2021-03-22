@@ -20,12 +20,12 @@ class AdvOrPen extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          flex: 4,
+          flex: 6,
           child: Row(
             children: [
               Spacer(),
               Expanded(
-                flex: 5,
+                flex: 4,
                 child: FittedBox(
                   child: TextButton(
                     child: Text('-', style: textStyle),
@@ -42,7 +42,7 @@ class AdvOrPen extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: 5,
+                flex: 4,
                 child: FittedBox(
                   child: TextButton(
                     child: Text('+', style: textStyle),
@@ -55,7 +55,7 @@ class AdvOrPen extends StatelessWidget {
             ],
           ),
         ),
-        Expanded(child: FittedBox(child: Text(advOrPenDisplay))),
+        Expanded(flex: 2, child: FittedBox(child: Text(advOrPenDisplay))),
       ],
     );
   }
